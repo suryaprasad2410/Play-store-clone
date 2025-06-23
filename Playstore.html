@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Store UI</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right top, #e0f7fa, #fce4ec, #fff3e0);
+            color: #202124;
+            min-height: 100vh;
+        }
+        .navbar {
+            background: linear-gradient(to right, #0f9d58, #1de9b6);
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .navbar img {
+            height: 70px;
+            width: 30vh;
+        }
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #c8e6c9;
+        }
+        .search-bar {
+            padding: 10px;
+            background: linear-gradient(to right, #c8e6c9, #b2ebf2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .search-bar input {
+            width: 80%;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border-radius: 50px;
+            border: none;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            max-width: 600px;
+        }
+        .category-section {
+            background: linear-gradient(to right, #ffffff, #e1f5fe);
+            padding: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            border-bottom: 1px solid #ddd;
+        }
+        .category {
+            font-weight: 500;
+            cursor: pointer;
+            color: #0f9d58;
+            margin: 8px 20px;
+            font-size: 1rem;
+            transition: transform 0.2s, color 0.3s;
+        }
+        .category:hover {
+            transform: scale(1.1);
+            color: #004d40;
+        }
+        .apps-section {
+            background: linear-gradient(to top left, #ffffff, #e0f7fa);
+            padding: 1rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .section-title {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: #0f9d58;
+        }
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 1.5rem;
+        }
+        .app-card {
+            background: linear-gradient(to top, #ffffff, #f1f8e9);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            padding: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .app-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .app-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .carousel-item img {
+            height: 300px;
+            object-fit: cover;
+        }
+        .page {
+            padding: 2rem 1rem;
+            background: linear-gradient(to top, #ffffff, #f1f8e9);
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            max-width: 900px;
+        }
+        .footer {
+            background: linear-gradient(to right, #0f9d58, #1de9b6);
+            padding: 1rem;
+            text-align: center;
+            color: #ffffff;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#"><img src="7.jpg" alt="Logo"></a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#">About Us</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#">Contact Us</a></li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search apps & games" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<div class="container my-4">
+    <div class="card shadow">
+        <div class="card-header bg-success text-white">Popular Games</div>
+        <div class="card-body">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active"><img src="8.jpg" class="d-block w-100 rounded" alt="Game 1"></div>
+                    <div class="carousel-item"><img src="9.jpg" class="d-block w-100 rounded" alt="Game 2"></div>
+                    <div class="carousel-item"><img src="10.jpg" class="d-block w-100 rounded" alt="Game 3"></div>
+                    <div class="carousel-item"><img src="11.jpg" class="d-block w-100 rounded" alt="Game 4"></div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="apps-section">
+    <div class="section-title">Recommended for you</div>
+    <div class="app-grid">
+        <div class="app-card"><img src="1.jpg" alt="App 1"><div class="app-name">BGMI</div></div>
+        <div class="app-card"><img src="2.jpg" alt="App 2"><div class="app-name">Free Fire</div></div>
+        <div class="app-card"><img src="3.jpg" alt="App 3"><div class="app-name">Subway Surfers</div></div>
+        <div class="app-card"><img src="4.jpg" alt="App 4"><div class="app-name">RC24</div></div>
+        <div class="app-card"><img src="5.jpg" alt="App 5"><div class="app-name">Score Hero</div></div>
+        <div class="app-card"><img src="6.jpg" alt="App 6"><div class="app-name">Ludo</div></div>
+    </div>
+</div>
+
+<div class="page" id="about">
+    <h2>About Google Play</h2>
+    <p>Google Play is your one-stop shop for apps, games, movies, books, and more, bringing you a world of entertainment and information.</p>
+    <p>Our mission is to make digital content accessible to billions of users worldwide while supporting developers to reach global audiences.</p>
+</div>
+
+<div class="page" id="contact">
+    <h2>Contact Us</h2>
+    <p>If you have any questions or feedback, feel free to contact us:</p>
+    <ul>
+        <li>Email: suryaprasad7893@gmail.com</li>
+        <li>Phone: +91 7893156396</li>
+    </ul>
+</div>
+
+<div class="footer">&copy; 2025 All Rights Reserved</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
